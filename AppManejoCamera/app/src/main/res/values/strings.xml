@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">AppManejoCamera</string>
+    <string name="btn_activar_camera">Activar Camera!</string>
+</resources>
