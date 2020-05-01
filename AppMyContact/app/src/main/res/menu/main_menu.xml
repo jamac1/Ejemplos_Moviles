@@ -7,8 +7,8 @@
         android:title="@string/new_name"
         app:showAsAction="ifRoom" />
     <item
-        android:id="@+id/itemEdit"
-        android:icon="@android:drawable/ic_menu_edit"
+        android:id="@+id/itemdelete"
+        android:icon="@android:drawable/ic_menu_delete"
         android:title="@string/new_name"
         app:showAsAction="ifRoom" />
 </menu>

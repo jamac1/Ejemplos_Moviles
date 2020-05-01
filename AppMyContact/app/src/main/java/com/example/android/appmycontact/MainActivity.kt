@@ -7,25 +7,35 @@ import android.os.Bundle
 import android.view.Menu
 import android.view.MenuInflater
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.recyclerview.widget.ItemTouchHelper
+
 
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.prototype_contact.*
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), ContactPrototype.OnItemClickListener {
+
 
     val REQUEST_CODE = 1
     var contacts = ArrayList<Contact>()
     var contactAdapter = ContactAdapter(contacts)
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
+         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         loadContacts()
         initView()
+
     }
 
    fun initView() {
+
         rvContact.adapter = contactAdapter
         rvContact.layoutManager= LinearLayoutManager(this)
+        val itemTouchHelper = ItemTouchHelper(SwipeToDelete(contactAdapter))
+       itemTouchHelper.attachToRecyclerView(rvContact)
     }
 
     private fun loadContacts() {
@@ -42,11 +52,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val intent = Intent(this,ContactActivity::class.java)
-        // envio normal startActivity(intent)
-        startActivityForResult(intent, REQUEST_CODE)
-        return super.onOptionsItemSelected(item)
-    }
+       val id= item.itemId
+        if(id==R.id.itemAdd) {
+            val intent = Intent(this, ContactActivity::class.java)
+//        // envio normal startActivity(intent)
+            startActivityForResult(intent, REQUEST_CODE)
+        }else{
+            Toast.makeText(this,"DESLIZE HACIA LA IZQUIERDA O DERECHA EL ELEMENTO A ELIMINAR",Toast.LENGTH_LONG).show()
+        }
+       return super.onOptionsItemSelected(item)
+   }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
@@ -59,4 +74,10 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    override fun onItemclick(contact: Contact) {
+        TODO("Not yet implemented")
+    }
+
+
 }
