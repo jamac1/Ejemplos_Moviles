@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppMyJob</string>
+    <string name="hint_descripcion">Descripción</string>
+    <string name="btn__buscar">Buscar</string>
+</resources>
