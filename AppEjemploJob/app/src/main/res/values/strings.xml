@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AppEjemploJob</string>
+    <string name="hint_description">Descripcion</string>
+    <string name="btn_search">Buscar</string>
 </resources>

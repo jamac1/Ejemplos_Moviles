@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">XtremeMovieApp</string>
+    <string name="name_title">App de peliculas</string>
+    <string name="name_buscar">Buscar</string>
+    <string name="name_favoritos">Favoritos</string>
+    <string name="hint_pelicula">Pelicula</string>
+    <string name="name_lista_de_favoritos">Lista de Favoritos</string>
+</resources>
